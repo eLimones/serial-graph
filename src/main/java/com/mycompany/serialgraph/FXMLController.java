@@ -1,6 +1,6 @@
-package com.mycompany.termite;
+package com.mycompany.serialgraph;
 
-import com.mycompany.termite.model.SimpleSerialPort;
+import com.mycompany.serialgraph.model.SimpleSerialPort;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;

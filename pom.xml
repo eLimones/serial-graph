@@ -3,15 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycompany</groupId>
-    <artifactId>termite</artifactId>
+    <artifactId>serial-graph</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>termite</name>
+    <name>serial-graph</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mainClass>com.mycompany.termite.MainApp</mainClass>
+        <mainClass>com.mycompany.serialgraph.MainApp</mainClass>
     </properties>
 
     <organization>

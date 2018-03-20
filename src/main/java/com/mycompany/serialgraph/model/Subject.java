@@ -1,4 +1,4 @@
-package com.mycompany.termite.model;
+package com.mycompany.serialgraph.model;
 
 import java.util.ArrayList;
 

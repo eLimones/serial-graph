@@ -1,4 +1,4 @@
-package com.mycompany.termite.model;
+package com.mycompany.serialgraph.model;
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
@@ -11,6 +11,7 @@ import org.junit.Ignore;
 
 public class SimpleSerialPortTest {
 
+    @Ignore
     @Test
     public void returnsNames(){
         String[] portNames = SimpleSerialPort.getPorts();

@@ -1,4 +1,4 @@
-package com.mycompany.termite.model;
+package com.mycompany.serialgraph.model;
 
 import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortEvent;
