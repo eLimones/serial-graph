@@ -14,20 +14,18 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
-import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class FXMLController implements Initializable {
     
     private SimpleSerialPort serialPort;
     
-    @FXML
-    private TextField inputTextField;
-
     @FXML
     private TextArea messageLog;
     
@@ -38,19 +36,14 @@ public class FXMLController implements Initializable {
     private Button clearButton;
     
     @FXML
-    private Button sendButton;
-    
+    private LineChart<Number, Number> chart;
+
     @FXML
-    void sendMessage(ActionEvent event) {
-        try {
-            String newMessage = inputTextField.getText() + "\n";
-            inputTextField.setText("");
-            serialPort.write(newMessage);
-            appendToLog(newMessage);
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    private NumberAxis xAxis;
+
+    @FXML
+    private NumberAxis yAxis;
+    
     
     @FXML
     void clearMessageLog(ActionEvent event) {
@@ -90,9 +83,26 @@ public class FXMLController implements Initializable {
     }
     
     void setDisabled(boolean state){
-        inputTextField.setDisable(state);
         clearButton.setDisable(state);
-        sendButton.setDisable(state);
+    }
+    
+    private int counter;
+    private XYChart.Series series;
+    
+    void plotSomething(){
+        series = new XYChart.Series();
+        series.setName("X^2");
+        for (counter = 0; counter < 20; counter++) {
+            series.getData().add(new XYChart.Data(counter,counter*counter));
+        }
+        chart.getData().add(series);
+    }
+    
+    @FXML
+    void doSomething(ActionEvent event) {
+        messageLog.setText("hello world");
+        series.getData().add(new XYChart.Data(counter,counter*counter));
+        counter++;
     }
     
     @Override
@@ -101,5 +111,6 @@ public class FXMLController implements Initializable {
         ObservableList<String> options = FXCollections.observableArrayList(ports);
         portSelector.setItems(options);
         setDisabled(true);
+        plotSomething();
     }    
 }
